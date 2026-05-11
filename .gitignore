@@ -5,3 +5,5 @@ models/*.joblib
 models/*.pkl
 .DS_Store
 .env
+data/raw/
+data/processed/
