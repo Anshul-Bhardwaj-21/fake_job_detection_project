@@ -5,5 +5,8 @@ models/*.joblib
 models/*.pkl
 .DS_Store
 .env
-data/raw/
+data/raw/fake_job_postings.csv
 data/processed/
+*.log
+.vscode/
+node_modules/
