@@ -1,0 +1,83 @@
+{
+  "best_model": "Linear SVM",
+  "results": [
+    {
+      "model": "Complement Naive Bayes",
+      "accuracy": 0.8719239373601789,
+      "precision": 0.2346368715083799,
+      "recall": 0.7283236994219653,
+      "f1_score": 0.35492957746478876
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.9642058165548099,
+      "precision": 0.5818181818181818,
+      "recall": 0.9248554913294798,
+      "f1_score": 0.7142857142857143
+    },
+    {
+      "model": "Decision Tree",
+      "accuracy": 0.962248322147651,
+      "precision": 0.5969387755102041,
+      "recall": 0.6763005780346821,
+      "f1_score": 0.6341463414634146
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.9776286353467561,
+      "precision": 0.9696969696969697,
+      "recall": 0.5549132947976878,
+      "f1_score": 0.7058823529411765
+    },
+    {
+      "model": "Linear SVM",
+      "accuracy": 0.9840604026845637,
+      "precision": 0.7989690721649485,
+      "recall": 0.8959537572254336,
+      "f1_score": 0.8446866485013624
+    }
+  ],
+  "confusion_matrix": [
+    [
+      3364,
+      39
+    ],
+    [
+      18,
+      155
+    ]
+  ],
+  "classification_report": {
+    "Real": {
+      "precision": 0.9946777054997044,
+      "recall": 0.9885395239494563,
+      "f1-score": 0.9915991156963891,
+      "support": 3403.0
+    },
+    "Fake": {
+      "precision": 0.7989690721649485,
+      "recall": 0.8959537572254336,
+      "f1-score": 0.8446866485013624,
+      "support": 173.0
+    },
+    "accuracy": 0.9840604026845637,
+    "macro avg": {
+      "precision": 0.8968233888323265,
+      "recall": 0.942246640587445,
+      "f1-score": 0.9181428820988757,
+      "support": 3576.0
+    },
+    "weighted avg": {
+      "precision": 0.9852096983501202,
+      "recall": 0.9840604026845637,
+      "f1-score": 0.9844917731838781,
+      "support": 3576.0
+    }
+  },
+  "dataset_info": {
+    "total_samples": 17880,
+    "training_samples": 14304,
+    "test_samples": 3576,
+    "feature_count": 5207
+  }
+}

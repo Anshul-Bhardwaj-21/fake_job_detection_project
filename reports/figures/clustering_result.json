@@ -1,0 +1,32 @@
+{
+  "best_k": 2,
+  "silhouette_scores": {
+    "2": 0.10966441136153965,
+    "3": 0.046367785890603155,
+    "4": 0.06556386723258646,
+    "5": 0.03700821023870357,
+    "6": 0.042751184688934546,
+    "7": 0.049668758008309694,
+    "8": 0.0371065332863197
+  },
+  "cluster_summary": [
+    {
+      "cluster": 0,
+      "total_jobs": 1380,
+      "fake_jobs": 43,
+      "avg_suspicious_keywords": 0.013043478260869565,
+      "avg_profile_missing": 0.0536231884057971,
+      "avg_salary_missing": 0.9963768115942029,
+      "fake_ratio": 0.031159420289855074
+    },
+    {
+      "cluster": 1,
+      "total_jobs": 16500,
+      "fake_jobs": 823,
+      "avg_suspicious_keywords": 0.026,
+      "avg_profile_missing": 0.196,
+      "avg_salary_missing": 0.7236969696969697,
+      "fake_ratio": 0.04987878787878788
+    }
+  ]
+}
