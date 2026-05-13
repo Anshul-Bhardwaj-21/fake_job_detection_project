@@ -3,81 +3,138 @@
   "results": [
     {
       "model": "Complement Naive Bayes",
-      "accuracy": 0.8719239373601789,
-      "precision": 0.2346368715083799,
-      "recall": 0.7283236994219653,
-      "f1_score": 0.35492957746478876
+      "accuracy": 0.9132501485442662,
+      "precision": 0.40057636887608067,
+      "recall": 0.6233183856502242,
+      "f1_score": 0.48771929824561405
     },
     {
       "model": "Logistic Regression",
-      "accuracy": 0.9642058165548099,
-      "precision": 0.5818181818181818,
-      "recall": 0.9248554913294798,
-      "f1_score": 0.7142857142857143
+      "accuracy": 0.964349376114082,
+      "precision": 0.6782006920415224,
+      "recall": 0.8789237668161435,
+      "f1_score": 0.765625
     },
     {
       "model": "Decision Tree",
-      "accuracy": 0.962248322147651,
-      "precision": 0.5969387755102041,
-      "recall": 0.6763005780346821,
-      "f1_score": 0.6341463414634146
+      "accuracy": 0.9581105169340464,
+      "precision": 0.6846846846846847,
+      "recall": 0.6816143497757847,
+      "f1_score": 0.6831460674157304
     },
     {
       "model": "Random Forest",
-      "accuracy": 0.9776286353467561,
-      "precision": 0.9696969696969697,
-      "recall": 0.5549132947976878,
-      "f1_score": 0.7058823529411765
+      "accuracy": 0.9726678550207962,
+      "precision": 0.9645390070921985,
+      "recall": 0.6098654708520179,
+      "f1_score": 0.7472527472527473
     },
     {
       "model": "Linear SVM",
-      "accuracy": 0.9840604026845637,
-      "precision": 0.7989690721649485,
-      "recall": 0.8959537572254336,
-      "f1_score": 0.8446866485013624
+      "accuracy": 0.9803921568627451,
+      "precision": 0.852017937219731,
+      "recall": 0.852017937219731,
+      "f1_score": 0.852017937219731
+    },
+    {
+      "model": "Calibrated Linear SVM",
+      "accuracy": 0.978015448603684,
+      "precision": 0.9257142857142857,
+      "recall": 0.726457399103139,
+      "f1_score": 0.8140703517587939
     }
   ],
   "confusion_matrix": [
     [
-      3364,
-      39
+      3110,
+      33
     ],
     [
-      18,
-      155
+      33,
+      190
+    ]
+  ],
+  "document_style_confusion_matrix": [
+    [
+      3100,
+      43
+    ],
+    [
+      31,
+      192
     ]
   ],
   "classification_report": {
     "Real": {
-      "precision": 0.9946777054997044,
-      "recall": 0.9885395239494563,
-      "f1-score": 0.9915991156963891,
-      "support": 3403.0
+      "precision": 0.9895004772510341,
+      "recall": 0.9895004772510341,
+      "f1-score": 0.9895004772510341,
+      "support": 3143.0
     },
     "Fake": {
-      "precision": 0.7989690721649485,
-      "recall": 0.8959537572254336,
-      "f1-score": 0.8446866485013624,
-      "support": 173.0
+      "precision": 0.852017937219731,
+      "recall": 0.852017937219731,
+      "f1-score": 0.852017937219731,
+      "support": 223.0
     },
-    "accuracy": 0.9840604026845637,
+    "accuracy": 0.9803921568627451,
     "macro avg": {
-      "precision": 0.8968233888323265,
-      "recall": 0.942246640587445,
-      "f1-score": 0.9181428820988757,
-      "support": 3576.0
+      "precision": 0.9207592072353825,
+      "recall": 0.9207592072353825,
+      "f1-score": 0.9207592072353825,
+      "support": 3366.0
     },
     "weighted avg": {
-      "precision": 0.9852096983501202,
-      "recall": 0.9840604026845637,
-      "f1-score": 0.9844917731838781,
-      "support": 3576.0
+      "precision": 0.9803921568627451,
+      "recall": 0.9803921568627451,
+      "f1-score": 0.9803921568627451,
+      "support": 3366.0
     }
   },
+  "document_style_classification_report": {
+    "Real": {
+      "precision": 0.9900990099009901,
+      "recall": 0.9863188036907413,
+      "f1-score": 0.988205291679949,
+      "support": 3143.0
+    },
+    "Fake": {
+      "precision": 0.8170212765957446,
+      "recall": 0.8609865470852018,
+      "f1-score": 0.8384279475982532,
+      "support": 223.0
+    },
+    "accuracy": 0.978015448603684,
+    "macro avg": {
+      "precision": 0.9035601432483673,
+      "recall": 0.9236526753879716,
+      "f1-score": 0.9133166196391012,
+      "support": 3366.0
+    },
+    "weighted avg": {
+      "precision": 0.978632481520993,
+      "recall": 0.978015448603684,
+      "f1-score": 0.9782824313917082,
+      "support": 3366.0
+    }
+  },
+  "dataset_sources": [
+    {
+      "name": "primary",
+      "path": "D:\\Projects\\fake_job_detection_project\\data\\raw\\fake_job_postings.csv",
+      "rows": 17880
+    },
+    {
+      "name": "indian_synthetic_huggingface",
+      "path": "D:\\Projects\\fake_job_detection_project\\data\\raw\\indian_fake_job_postings_synthetic.csv",
+      "rows": 597
+    }
+  ],
   "dataset_info": {
-    "total_samples": 17880,
-    "training_samples": 14304,
-    "test_samples": 3576,
-    "feature_count": 5207
+    "total_samples": 16828,
+    "training_samples": 26924,
+    "test_samples": 3366,
+    "final_training_samples": 33656,
+    "feature_count": 8208
   }
 }

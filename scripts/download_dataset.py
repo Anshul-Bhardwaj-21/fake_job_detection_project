@@ -19,10 +19,11 @@ from pathlib import Path
 import zipfile
 import shutil
 
-# Add src to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Add project root to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from config import DATA_DIR, KAGGLE_DATASET
+from src.config import DATA_DIR, INDIAN_SYNTHETIC_DATASET, KAGGLE_DATASET
+from src.datasets import download_indian_synthetic_dataset
 
 def check_kaggle_credentials():
     """Check if Kaggle API credentials are available."""
@@ -63,9 +64,10 @@ def download_kaggle_dataset():
 
     try:
         print("Downloading dataset from Kaggle...")
-        kaggle.api.competition_download_files(
-            "real-or-fake-fake-jobposting-prediction",
+        kaggle.api.dataset_download_files(
+            "shivamb/real-or-fake-fake-jobposting-prediction",
             path=str(DATA_DIR),
+            unzip=False,
             quiet=False
         )
 
@@ -112,20 +114,31 @@ def main():
     # Ensure data/raw directory exists
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Check if dataset already exists
+    # Check if primary dataset already exists
     if KAGGLE_DATASET.exists():
         print(f"Dataset already exists at: {KAGGLE_DATASET}")
-        print("Skipping download. Delete the file if you want to re-download.")
-        return
-
-    # Try to download
-    if download_kaggle_dataset():
-        print("\nDataset ready! You can now run: python train.py")
+        print("Skipping primary download. Delete the file if you want to re-download.")
     else:
-        print("\nFailed to download dataset automatically.")
-        print("Please download manually from:")
-        print("https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction")
-        print("and place the CSV file as: data/raw/fake_job_postings.csv")
+        # Try to download
+        if download_kaggle_dataset():
+            print("\nPrimary dataset ready.")
+        else:
+            print("\nFailed to download primary dataset automatically.")
+            print("Please download manually from:")
+            print("https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction")
+            print("and place the CSV file as: data/raw/fake_job_postings.csv")
+
+    if INDIAN_SYNTHETIC_DATASET.exists():
+        print(f"Additional dataset already exists at: {INDIAN_SYNTHETIC_DATASET}")
+    else:
+        print("\nDownloading additional Indian fake-job dataset from Hugging Face...")
+        try:
+            dataset_path = download_indian_synthetic_dataset()
+            print(f"Additional dataset saved to: {dataset_path}")
+        except Exception as e:
+            print(f"Failed to download additional dataset: {e}")
+
+    print("\nDatasets ready! You can now run: python train.py")
 
 if __name__ == "__main__":
     main()

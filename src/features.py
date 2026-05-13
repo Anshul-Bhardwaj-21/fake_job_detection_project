@@ -4,19 +4,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from scipy import sparse
-from .config import CATEGORICAL_COLUMNS, BINARY_COLUMNS
-
-NUMERIC_COLUMNS = [
-    "telecommuting",
-    "has_company_logo",
-    "has_questions",
-    "description_length",
-    "requirements_length",
-    "company_profile_length",
-    "suspicious_keyword_count",
-    "profile_missing",
-    "salary_missing",
-]
+from .config import CATEGORICAL_COLUMNS, NUMERIC_COLUMNS
 
 
 def build_pipeline(classifier=None):
@@ -51,8 +39,14 @@ def build_pipeline(classifier=None):
 
 def build_features_separate(data):
     """Build features separately for saving vectorizers and handling sparse matrices."""
+    tfidf, ohe, scaler, X_combined = fit_feature_transformers(data)
+    return X_combined, tfidf, ohe, scaler
+
+
+def fit_feature_transformers(data, max_features=8000):
+    """Fit feature transformers and return transformed features."""
     # TF-IDF
-    tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
+    tfidf = TfidfVectorizer(max_features=max_features, ngram_range=(1, 2), min_df=2)
     X_text = tfidf.fit_transform(data["clean_text"])
 
     # Categorical
@@ -66,4 +60,12 @@ def build_features_separate(data):
     # Combine sparse matrices
     X_combined = sparse.hstack([X_text, X_cat, X_num])
 
-    return X_combined, tfidf, ohe, scaler
+    return tfidf, ohe, scaler, X_combined
+
+
+def transform_features(data, tfidf, ohe, scaler):
+    """Transform prepared rows with already fitted feature transformers."""
+    X_text = tfidf.transform(data["clean_text"])
+    X_cat = ohe.transform(data[CATEGORICAL_COLUMNS])
+    X_num = scaler.transform(data[NUMERIC_COLUMNS])
+    return sparse.hstack([X_text, X_cat, X_num])

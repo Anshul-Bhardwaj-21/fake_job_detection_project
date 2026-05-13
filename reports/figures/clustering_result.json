@@ -1,32 +1,40 @@
 {
   "best_k": 2,
   "silhouette_scores": {
-    "2": 0.10966441136153965,
-    "3": 0.046367785890603155,
-    "4": 0.06556386723258646,
-    "5": 0.03700821023870357,
-    "6": 0.042751184688934546,
-    "7": 0.049668758008309694,
-    "8": 0.0371065332863197
+    "2": 0.09820047182361816,
+    "3": 0.027347687532490908,
+    "4": 0.02626341231494608,
+    "5": 0.033011923906369804,
+    "6": 0.02472703970208906,
+    "7": 0.01747531847940772,
+    "8": 0.024250303381771723
   },
   "cluster_summary": [
     {
       "cluster": 0,
-      "total_jobs": 1380,
-      "fake_jobs": 43,
-      "avg_suspicious_keywords": 0.013043478260869565,
-      "avg_profile_missing": 0.0536231884057971,
-      "avg_salary_missing": 0.9963768115942029,
-      "fake_ratio": 0.031159420289855074
+      "total_jobs": 1568,
+      "fake_jobs": 510,
+      "avg_suspicious_keywords": 0.1747448979591837,
+      "avg_fee_keywords": 0.10331632653061225,
+      "avg_urgency_keywords": 0.036989795918367346,
+      "avg_contact_risk_keywords": 0.032525510204081634,
+      "avg_sensitive_info_keywords": 0.015306122448979591,
+      "avg_profile_missing": 0.75,
+      "avg_salary_missing": 0.18239795918367346,
+      "fake_ratio": 0.3252551020408163
     },
     {
       "cluster": 1,
-      "total_jobs": 16500,
-      "fake_jobs": 823,
-      "avg_suspicious_keywords": 0.026,
-      "avg_profile_missing": 0.196,
-      "avg_salary_missing": 0.7236969696969697,
-      "fake_ratio": 0.04987878787878788
+      "total_jobs": 15260,
+      "fake_jobs": 604,
+      "avg_suspicious_keywords": 0.02529488859764089,
+      "avg_fee_keywords": 0.0081913499344692,
+      "avg_urgency_keywords": 0.0015727391874180866,
+      "avg_contact_risk_keywords": 0.003931847968545216,
+      "avg_sensitive_info_keywords": 0.0028833551769331584,
+      "avg_profile_missing": 0.16677588466579293,
+      "avg_salary_missing": 0.009043250327653997,
+      "fake_ratio": 0.03958060288335518
     }
   ]
 }

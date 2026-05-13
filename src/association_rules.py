@@ -18,6 +18,14 @@ def make_transaction_items(row):
         items.append("Salary Not Mentioned")
     if row.get("suspicious_keyword_count", 0) >= 1:
         items.append("Suspicious Keywords Present")
+    if row.get("fee_keyword_count", 0) >= 1:
+        items.append("Payment Or Deposit Request")
+    if row.get("urgency_keyword_count", 0) >= 1:
+        items.append("Urgency Or Guaranteed Selection")
+    if row.get("contact_risk_keyword_count", 0) >= 1:
+        items.append("Risky Contact Channel")
+    if row.get("sensitive_info_keyword_count", 0) >= 1:
+        items.append("Sensitive Info Requested")
     if row.get("fraudulent", 0) == 1:
         items.append("Fraudulent")
     else:

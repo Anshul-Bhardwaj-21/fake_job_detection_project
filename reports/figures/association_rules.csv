@@ -1,67 +1,77 @@
 antecedents,consequents,support,confidence,lift
-"No Screening Questions, Suspicious Keywords Present, Missing Company Profile","Fraudulent, Missing Logo, Salary Not Mentioned",0.005984340044742729,0.7588652482269502,27.634441218529265
-"No Screening Questions, Suspicious Keywords Present, Missing Logo","Fraudulent, Salary Not Mentioned, Missing Company Profile",0.005984340044742729,0.6948051948051948,24.996211032428334
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, No Screening Questions, Missing Logo, Salary Not Mentioned",0.005984340044742729,0.5944444444444444,24.891491022638565
-"Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile","Fraudulent, No Screening Questions, Missing Logo",0.005984340044742729,0.6815286624203821,24.868841804237615
-"Suspicious Keywords Present, Missing Logo","Fraudulent, No Screening Questions, Salary Not Mentioned, Missing Company Profile",0.005984340044742729,0.5911602209944752,24.696132596685086
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile","Fraudulent, Missing Logo",0.005984340044742729,0.7985074626865671,24.48938839251427
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned","Fraudulent, No Screening Questions, Missing Company Profile",0.005984340044742729,0.656441717791411,24.051594086291864
-"Suspicious Keywords Present, Missing Logo, Missing Company Profile","Fraudulent, No Screening Questions, Salary Not Mentioned",0.005984340044742729,0.6729559748427673,23.639396522964006
-"No Screening Questions, Suspicious Keywords Present, Missing Company Profile","Fraudulent, Missing Logo",0.005984340044742729,0.7588652482269502,23.27360315316959
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, Missing Logo, Salary Not Mentioned",0.006319910514541387,0.6277777777777778,22.860828241683638
-"Suspicious Keywords Present, Missing Logo","Fraudulent, Salary Not Mentioned, Missing Company Profile",0.006319910514541387,0.6243093922651933,22.46006425292084
-"No Screening Questions, Suspicious Keywords Present, Missing Logo, Salary Not Mentioned","Fraudulent, Missing Company Profile",0.005984340044742729,0.7278911564625851,22.171539825470223
-"Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile","Fraudulent, Missing Logo",0.006319910514541387,0.7197452229299364,22.07383290906906
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned, Missing Company Profile","Fraudulent, No Screening Questions",0.005984340044742729,0.7535211267605633,21.87168465337479
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, No Screening Questions, Missing Logo",0.005984340044742729,0.5944444444444444,21.691156462585035
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, No Screening Questions, Salary Not Mentioned",0.006208053691275168,0.6166666666666667,21.662082514734774
-"Suspicious Keywords Present, Missing Logo","Fraudulent, No Screening Questions, Missing Company Profile",0.005984340044742729,0.5911602209944752,21.659722851191017
-"No Screening Questions, Suspicious Keywords Present, Missing Logo, Missing Company Profile","Fraudulent, Salary Not Mentioned",0.005984340044742729,0.8045112781954886,21.501736403789742
-"No Screening Questions, Suspicious Keywords Present, Missing Logo","Fraudulent, Missing Company Profile",0.005984340044742729,0.6948051948051948,21.16374256067612
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned","Fraudulent, Missing Company Profile",0.006319910514541387,0.6932515337423313,21.116418097636938
-"No Screening Questions, Suspicious Keywords Present, Missing Company Profile","Fraudulent, Salary Not Mentioned",0.006208053691275168,0.7872340425531915,21.03997710142162
-"Suspicious Keywords Present, Missing Logo","Fraudulent, No Screening Questions, Salary Not Mentioned",0.005984340044742729,0.5911602209944752,20.766099708018107
-"Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile","Fraudulent, No Screening Questions",0.006208053691275168,0.7070063694267517,20.521548515179088
-"Suspicious Keywords Present, Missing Logo, Missing Company Profile","Fraudulent, No Screening Questions",0.005984340044742729,0.6729559748427673,19.533202646410192
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, Missing Logo",0.0063758389261744965,0.6333333333333333,19.423670668953687
-"Suspicious Keywords Present, Missing Logo","Fraudulent, Missing Company Profile",0.0063758389261744965,0.6298342541436465,19.184729921786026
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned","Fraudulent, No Screening Questions",0.005984340044742729,0.656441717791411,19.053860250179266
-"Suspicious Keywords Present, Missing Logo, Missing Company Profile","Fraudulent, Salary Not Mentioned",0.006319910514541387,0.710691823899371,18.99427475533745
-"No Screening Questions, Suspicious Keywords Present, Missing Logo","Fraudulent, Salary Not Mentioned",0.005984340044742729,0.6948051948051948,18.569681439636597
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, No Screening Questions",0.006208053691275168,0.6166666666666667,17.899350649350648
-"Missing Company Profile, Suspicious Keywords Present, Salary Not Mentioned, No Screening Questions, Missing Logo",Fraudulent,0.005984340044742729,0.84251968503937,17.39521012529323
-"Suspicious Keywords Present, Missing Company Profile","Fraudulent, Salary Not Mentioned",0.006543624161073826,0.65,17.37219730941704
-"Suspicious Keywords Present, Missing Logo","Fraudulent, No Screening Questions",0.005984340044742729,0.5911602209944752,17.1590012197747
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile",Fraudulent,0.006208053691275168,0.8283582089552239,17.102823067112475
-"Suspicious Keywords Present, Missing Logo","Fraudulent, Salary Not Mentioned",0.006319910514541387,0.6243093922651933,16.68557837623566
-"No Screening Questions, Suspicious Keywords Present, Missing Logo, Missing Company Profile",Fraudulent,0.005984340044742729,0.8045112781954886,16.610463803851427
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned, Missing Company Profile",Fraudulent,0.006319910514541387,0.7957746478873239,16.430081644602023
-"No Screening Questions, Suspicious Keywords Present, Missing Company Profile",Fraudulent,0.006208053691275168,0.7872340425531915,16.253746744631716
-"Suspicious Keywords Present, Salary Not Mentioned, Missing Company Profile",Fraudulent,0.006543624161073826,0.7452229299363058,15.386357952957445
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Company Profile",0.006208053691275168,0.502262443438914,15.298896914289237
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Salary Not Mentioned, Missing Company Profile",0.006208053691275168,0.4220532319391635,15.183725929722824
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Logo, Missing Company Profile",0.005984340044742729,0.48416289592760176,15.134322690883774
-"No Screening Questions, Suspicious Keywords Present, Missing Logo, Salary Not Mentioned",Fraudulent,0.005984340044742729,0.7278911564625851,15.028514870151295
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Salary Not Mentioned, Missing Logo, Missing Company Profile",0.005984340044742729,0.4068441064638783,14.99870644035906
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Logo",0.005984340044742729,0.48416289592760176,14.848769432565213
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Logo, Salary Not Mentioned",0.005984340044742729,0.4068441064638783,14.815422858603144
-"Suspicious Keywords Present, Missing Logo, Missing Company Profile",Fraudulent,0.0063758389261744965,0.7169811320754718,14.803259401281103
-"No Screening Questions, Suspicious Keywords Present, Missing Logo",Fraudulent,0.005984340044742729,0.6948051948051948,14.345400557871688
-"Suspicious Keywords Present, Missing Logo, Salary Not Mentioned",Fraudulent,0.006319910514541387,0.6932515337423313,14.313322659714647
-"Suspicious Keywords Present, Missing Company Profile",Fraudulent,0.0065995525727069355,0.6555555555555557,13.535026943802928
-"Suspicious Keywords Present, Missing Logo",Fraudulent,0.0063758389261744965,0.6298342541436465,13.003968203335335
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Company Profile",0.006208053691275168,0.4220532319391635,12.855727064859018
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Logo, Missing Company Profile",0.005984340044742729,0.4068441064638783,12.717434656598153
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Logo",0.005984340044742729,0.4068441064638783,12.477483059303848
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, No Screening Questions, Missing Company Profile",0.006208053691275168,0.34049079754601225,12.47535954943176
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, No Screening Questions, Missing Logo, Missing Company Profile",0.005984340044742729,0.3282208588957055,12.200808642526434
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, No Screening Questions, Missing Logo",0.005984340044742729,0.3282208588957055,11.97671215725554
-"No Screening Questions, Suspicious Keywords Present","Fraudulent, Salary Not Mentioned",0.006263982102908278,0.4258555133079848,11.381609234599056
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Company Profile",0.006543624161073826,0.3588957055214724,10.931950962050982
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Logo, Missing Company Profile",0.006319910514541387,0.34662576687116564,10.835085160238533
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, Missing Logo",0.006319910514541387,0.34662576687116564,10.630649591177429
-"No Screening Questions, Suspicious Keywords Present, Salary Not Mentioned",Fraudulent,0.006263982102908278,0.5067873303167421,10.46346127720941
-"Suspicious Keywords Present, Salary Not Mentioned","Fraudulent, No Screening Questions",0.006263982102908278,0.34355828220858897,9.972113775794757
-"No Screening Questions, Suspicious Keywords Present",Fraudulent,0.006767337807606264,0.4600760456273764,9.499029671844678
-"Suspicious Keywords Present, Salary Not Mentioned",Fraudulent,0.006823266219239374,0.37423312883435583,7.726660904801712
-Suspicious Keywords Present,Fraudulent,0.0074384787472035795,0.30227272727272725,6.240919588494646
+"Missing Company Profile, No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Logo",0.012122652721654385,0.8429752066115702,16.533317921747674
+"Payment Or Deposit Request, Missing Logo","Missing Company Profile, Fraudulent, No Screening Questions",0.005942476824340385,0.746268656716418,16.07965295163109
+"Payment Or Deposit Request, No Screening Questions, Missing Logo","Missing Company Profile, Fraudulent",0.005942476824340385,0.819672131147541,15.964632665452339
+"Missing Logo, No Screening Questions, Suspicious Keywords Present","Missing Company Profile, Fraudulent",0.012122652721654385,0.816,15.89311111111111
+"Missing Logo, Suspicious Keywords Present","Missing Company Profile, Fraudulent, No Screening Questions",0.012122652721654385,0.7364620938628159,15.868353541003158
+"Missing Company Profile, Suspicious Keywords Present","Fraudulent, No Screening Questions, Missing Logo",0.012122652721654385,0.7259786476868327,15.642469504832293
+"Missing Company Profile, No Screening Questions, Payment Or Deposit Request","Fraudulent, Missing Logo",0.005942476824340385,0.7936507936507936,15.565915565915564
+"Missing Company Profile, Payment Or Deposit Request","Fraudulent, No Screening Questions, Missing Logo",0.005942476824340385,0.7194244604316548,15.501248169198318
+"Payment Or Deposit Request, Missing Logo","Missing Company Profile, Fraudulent",0.0061801758973140004,0.7761194029850746,15.116362631288006
+"Missing Logo, Missing Company Profile, Suspicious Keywords Present","Fraudulent, No Screening Questions",0.012122652721654385,0.7846153846153846,14.986955382869118
+"Missing Logo, Suspicious Keywords Present","Missing Company Profile, Fraudulent",0.012538626099358213,0.7617328519855597,14.836157908811343
+"Missing Company Profile, Suspicious Keywords Present","Fraudulent, Missing Logo",0.012538626099358213,0.7508896797153025,14.727239545744883
+"Missing Company Profile, Payment Or Deposit Request","Fraudulent, Missing Logo",0.0061801758973140004,0.7482014388489209,14.674514933507739
+"Missing Company Profile, Payment Or Deposit Request, Missing Logo","Fraudulent, No Screening Questions",0.005942476824340385,0.7575757575757576,14.47047088363774
+"Payment Or Deposit Request, Missing Logo","Fraudulent, No Screening Questions",0.005942476824340385,0.746268656716418,14.254493706270013
+"Missing Company Profile, Suspicious Keywords Present","Fraudulent, No Screening Questions",0.012360351794628001,0.7402135231316725,14.138834469080347
+"Missing Logo, Suspicious Keywords Present","Fraudulent, No Screening Questions",0.012122652721654385,0.7364620938628159,14.067178337711086
+"Missing Company Profile, Payment Or Deposit Request","Fraudulent, No Screening Questions",0.0060613263608271925,0.7338129496402878,14.016576976784068
+"Missing Logo, Missing Company Profile, No Screening Questions, Suspicious Keywords Present",Fraudulent,0.012122652721654385,0.8717948717948717,13.169267596556644
+"Missing Company Profile, No Screening Questions, Suspicious Keywords Present",Fraudulent,0.012360351794628001,0.859504132231405,12.983604611481224
+"Missing Company Profile, Payment Or Deposit Request, No Screening Questions, Missing Logo",Fraudulent,0.005942476824340385,0.8333333333333334,12.58827049670856
+"No Screening Questions, Payment Or Deposit Request, Missing Logo",Fraudulent,0.005942476824340385,0.819672131147541,12.381905406598582
+"Missing Logo, No Screening Questions, Suspicious Keywords Present",Fraudulent,0.012122652721654385,0.816,12.32643447037702
+"Missing Logo, Missing Company Profile, Suspicious Keywords Present",Fraudulent,0.012538626099358213,0.8115384615384615,12.259038806794642
+"Missing Company Profile, No Screening Questions, Payment Or Deposit Request",Fraudulent,0.0060613263608271925,0.8095238095238094,12.228605625374026
+"Missing Company Profile, Payment Or Deposit Request, Missing Logo",Fraudulent,0.0061801758973140004,0.7878787878787878,11.901637560524454
+"Payment Or Deposit Request, Missing Logo",Fraudulent,0.0061801758973140004,0.7761194029850746,11.724001179024091
+"Missing Company Profile, Suspicious Keywords Present",Fraudulent,0.012776325172331827,0.7651245551601423,11.557913836835615
+"Missing Company Profile, Payment Or Deposit Request",Fraudulent,0.006299025433800808,0.762589928057554,11.51962595094481
+"Missing Logo, Suspicious Keywords Present",Fraudulent,0.012538626099358213,0.7617328519855597,11.506679024428188
+"No Screening Questions, Suspicious Keywords Present","Missing Company Profile, Fraudulent",0.012360351794628001,0.5517241379310345,10.745849297573436
+"No Screening Questions, Suspicious Keywords Present","Missing Company Profile, Fraudulent, Missing Logo",0.012122652721654385,0.5411140583554377,10.72540326737963
+"No Screening Questions, Suspicious Keywords Present","Fraudulent, Missing Logo",0.012122652721654385,0.5411140583554377,10.61289903730222
+"Payment Or Deposit Request, No Screening Questions","Missing Company Profile, Fraudulent",0.0060613263608271925,0.5099999999999999,9.933194444444442
+"Payment Or Deposit Request, No Screening Questions","Missing Company Profile, Fraudulent, Missing Logo",0.005942476824340385,0.5,9.910482921083627
+"Payment Or Deposit Request, No Screening Questions","Fraudulent, Missing Logo",0.005942476824340385,0.5,9.806526806526806
+"Missing Company Profile, Salary Not Mentioned, No Screening Questions","Fraudulent, Missing Logo",0.007071547420965058,0.4666666666666667,9.152758352758353
+"Missing Company Profile, Salary Not Mentioned","Fraudulent, No Screening Questions, Missing Logo",0.007071547420965058,0.4075342465753425,8.781032396120183
+"Missing Company Profile, Salary Not Mentioned","Fraudulent, Missing Logo",0.007546945566912289,0.4349315068493151,8.530334961841811
+"No Screening Questions, Suspicious Keywords Present",Fraudulent,0.012538626099358213,0.5596816976127321,8.45450952192734
+"Missing Company Profile, Salary Not Mentioned, Missing Logo","Fraudulent, No Screening Questions",0.007071547420965058,0.43749999999999994,8.356696935300794
+Payment Or Deposit Request,"Missing Company Profile, Fraudulent, No Screening Questions",0.0060613263608271925,0.38345864661654133,8.262281824920816
+Payment Or Deposit Request,"Missing Company Profile, Fraudulent, No Screening Questions, Missing Logo",0.005942476824340385,0.3759398496240602,8.173534611723108
+Payment Or Deposit Request,"Fraudulent, No Screening Questions, Missing Logo",0.005942476824340385,0.3759398496240602,8.100276298941978
+"Salary Not Mentioned, No Screening Questions, Missing Logo","Missing Company Profile, Fraudulent",0.007071547420965058,0.4103448275862069,7.9922254150702425
+"Salary Not Mentioned, Missing Logo","Missing Company Profile, Fraudulent, No Screening Questions",0.007071547420965058,0.36503067484662577,7.865219201432803
+"Missing Company Profile, Salary Not Mentioned","Fraudulent, No Screening Questions",0.007071547420965058,0.4075342465753425,7.784320432882932
+"Payment Or Deposit Request, No Screening Questions",Fraudulent,0.006120751129070597,0.515,7.77955116696589
+Payment Or Deposit Request,"Missing Company Profile, Fraudulent",0.006299025433800808,0.3984962406015038,7.761452241715401
+Payment Or Deposit Request,"Missing Company Profile, Fraudulent, Missing Logo",0.0061801758973140004,0.39097744360902253,7.74955055483231
+Payment Or Deposit Request,"Fraudulent, Missing Logo",0.0061801758973140004,0.39097744360902253,7.668261562998405
+"Salary Not Mentioned, Missing Logo","Missing Company Profile, Fraudulent",0.007546945566912289,0.3895705521472393,7.587607930015906
+"Missing Company Profile, Salary Not Mentioned, No Screening Questions, Missing Logo",Fraudulent,0.007071547420965058,0.497907949790795,7.521359945313733
+Suspicious Keywords Present,"Missing Company Profile, Fraudulent, No Screening Questions",0.012360351794628001,0.34840871021775544,7.507070135140062
+Suspicious Keywords Present,"Missing Company Profile, Fraudulent, No Screening Questions, Missing Logo",0.012122652721654385,0.3417085427135678,7.429291158635555
+Payment Or Deposit Request,"Fraudulent, No Screening Questions",0.006120751129070597,0.38721804511278196,7.3962602305992
+Suspicious Keywords Present,"Fraudulent, No Screening Questions, Missing Logo",0.012122652721654385,0.3417085427135678,7.3627034017719835
+"Missing Company Profile, Salary Not Mentioned, Missing Logo",Fraudulent,0.007546945566912289,0.4669117647058823,7.053133910655824
+"Missing Company Profile, Salary Not Mentioned, No Screening Questions",Fraudulent,0.007071547420965058,0.4666666666666667,7.049431478156793
+Suspicious Keywords Present,"Missing Company Profile, Fraudulent",0.012776325172331827,0.3601340033500837,7.0142766300638995
+Suspicious Keywords Present,"Missing Company Profile, Fraudulent, Missing Logo",0.012538626099358213,0.35343383584589616,7.005399987767657
+"Salary Not Mentioned, Missing Logo","Fraudulent, No Screening Questions",0.007071547420965058,0.36503067484662577,6.972458792643608
+Suspicious Keywords Present,"Fraudulent, Missing Logo",0.012538626099358213,0.35343383584589616,6.931916771112751
+"Salary Not Mentioned, No Screening Questions","Missing Company Profile, Fraudulent, Missing Logo",0.007071547420965058,0.3469387755102041,6.876661618711089
+"Salary Not Mentioned, No Screening Questions","Fraudulent, Missing Logo",0.007071547420965058,0.3469387755102041,6.804528804528804
+"Salary Not Mentioned, No Screening Questions","Missing Company Profile, Fraudulent",0.007071547420965058,0.3469387755102041,6.757275132275133
+Suspicious Keywords Present,"Fraudulent, No Screening Questions",0.012538626099358213,0.35343383584589616,6.750947320788582
+"Missing Company Profile, Salary Not Mentioned",Fraudulent,0.007606370335155693,0.4383561643835617,6.6217751653919
+Payment Or Deposit Request,Fraudulent,0.0066555740432612314,0.4210526315789474,6.3603893036001145
+"Salary Not Mentioned, No Screening Questions, Missing Logo",Fraudulent,0.007071547420965058,0.4103448275862069,6.19863802389649
+"Salary Not Mentioned, Missing Logo",Fraudulent,0.007546945566912289,0.3895705521472393,5.884823385577866
+Salary Not Mentioned,"Missing Company Profile, Fraudulent",0.007606370335155693,0.3018867924528302,5.879804332634522
+Suspicious Keywords Present,Fraudulent,0.013311148086522463,0.3752093802345059,5.6678846055532
+"Salary Not Mentioned, No Screening Questions",Fraudulent,0.007309246493938674,0.358600583090379,5.416993368262925
+"Missing Company Profile, No Screening Questions, Missing Logo",Fraudulent,0.04599477062039458,0.34111943587483473,5.152924476572459
+Salary Not Mentioned,Fraudulent,0.007903494176372712,0.3136792452830188,4.73841502659124

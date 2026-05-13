@@ -49,23 +49,12 @@ def run_clustering(data, max_k=8):
         total_jobs=("cluster", "count"),
         fake_jobs=("fraudulent", "sum"),
         avg_suspicious_keywords=("suspicious_keyword_count", "mean"),
+        avg_fee_keywords=("fee_keyword_count", "mean"),
+        avg_urgency_keywords=("urgency_keyword_count", "mean"),
+        avg_contact_risk_keywords=("contact_risk_keyword_count", "mean"),
+        avg_sensitive_info_keywords=("sensitive_info_keyword_count", "mean"),
         avg_profile_missing=("profile_missing", "mean"),
         avg_salary_missing=("salary_missing", "mean"),
-    ).reset_index()
-    summary["fake_ratio"] = summary["fake_jobs"] / summary["total_jobs"]
-    summary.to_csv(REPORT_DIR / "cluster_summary.csv", index=False)
-
-    return {
-        "best_k": best_k,
-        "silhouette_scores": dict(zip(k_values, silhouette_scores)),
-        "cluster_summary": summary.to_dict(orient="records"),
-    }
-
-    summary = data.groupby("cluster").agg(
-        total_jobs=("cluster", "count"),
-        fake_jobs=("fraudulent", "sum"),
-        avg_suspicious_keywords=("suspicious_keyword_count", "mean"),
-        avg_profile_missing=("profile_missing", "mean"),
     ).reset_index()
     summary["fake_ratio"] = summary["fake_jobs"] / summary["total_jobs"]
     summary.to_csv(REPORT_DIR / "cluster_summary.csv", index=False)

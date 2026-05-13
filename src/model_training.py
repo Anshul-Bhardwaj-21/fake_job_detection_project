@@ -10,22 +10,28 @@ from sklearn.naive_bayes import ComplementNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
-from sklearn.neighbors import KNeighborsClassifier
-from .features import build_features_separate
-from .preprocessing import prepare_dataframe, save_processed_data
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.base import clone
+from .features import fit_feature_transformers, transform_features
+from .preprocessing import make_document_style_records, prepare_dataframe, save_processed_data
 from .config import TARGET_COLUMN, MODEL_PATH, TFIDF_PATH, LABEL_ENCODERS_PATH, FEATURE_CONFIG_PATH, METRICS_PATH, REPORT_DIR
 
 
-def train_and_evaluate(raw_data: pd.DataFrame):
+def train_and_evaluate(raw_data: pd.DataFrame, dataset_sources=None):
     data = prepare_dataframe(raw_data)
     save_processed_data(data)
 
-    X_combined, tfidf, ohe, scaler = build_features_separate(data)
-    y = data[TARGET_COLUMN]
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X_combined, y, test_size=0.2, random_state=42, stratify=y
+    train_df, test_df = train_test_split(
+        data, test_size=0.2, random_state=42, stratify=data[TARGET_COLUMN]
     )
+    train_augmented = prepare_dataframe(
+        pd.concat([train_df, make_document_style_records(train_df)], ignore_index=True)
+    )
+
+    tfidf, ohe, scaler, X_train = fit_feature_transformers(train_augmented)
+    X_test = transform_features(test_df, tfidf, ohe, scaler)
+    y_train = train_augmented[TARGET_COLUMN]
+    y_test = test_df[TARGET_COLUMN]
 
     candidate_models = {
         "Complement Naive Bayes": ComplementNB(),
@@ -33,6 +39,10 @@ def train_and_evaluate(raw_data: pd.DataFrame):
         "Decision Tree": DecisionTreeClassifier(random_state=42, class_weight="balanced"),
         "Random Forest": RandomForestClassifier(n_estimators=120, random_state=42, class_weight="balanced"),
         "Linear SVM": LinearSVC(class_weight="balanced", random_state=42, max_iter=10000),
+        "Calibrated Linear SVM": CalibratedClassifierCV(
+            estimator=LinearSVC(class_weight="balanced", random_state=42, max_iter=10000),
+            cv=3,
+        ),
     }
 
     results = []
@@ -63,15 +73,13 @@ def train_and_evaluate(raw_data: pd.DataFrame):
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Save model and components
-    joblib.dump(best_model, MODEL_PATH)
-    joblib.dump(tfidf, TFIDF_PATH)
-    joblib.dump(ohe, LABEL_ENCODERS_PATH)
-    joblib.dump(scaler, FEATURE_CONFIG_PATH)
-
     # Generate confusion matrix for best model
     best_preds = best_model.predict(X_test)
     cm = confusion_matrix(y_test, best_preds)
+    doc_test_df = prepare_dataframe(make_document_style_records(test_df))
+    X_doc_test = transform_features(doc_test_df, tfidf, ohe, scaler)
+    doc_test_preds = best_model.predict(X_doc_test)
+    doc_cm = confusion_matrix(y_test, doc_test_preds)
 
     fig, ax = plt.subplots(figsize=(6, 5))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax,
@@ -107,23 +115,39 @@ def train_and_evaluate(raw_data: pd.DataFrame):
 
     # Classification report for best model
     report = classification_report(y_test, best_preds, target_names=['Real', 'Fake'], output_dict=True)
+    doc_report = classification_report(y_test, doc_test_preds, target_names=['Real', 'Fake'], output_dict=True)
+
+    # Refit the selected model on all available data for deployment after honest holdout evaluation.
+    final_data = prepare_dataframe(
+        pd.concat([data, make_document_style_records(data)], ignore_index=True)
+    )
+    final_tfidf, final_ohe, final_scaler, X_final = fit_feature_transformers(final_data)
+    final_model = clone(candidate_models[best_name])
+    final_model.fit(X_final, final_data[TARGET_COLUMN])
+
+    joblib.dump(final_model, MODEL_PATH)
+    joblib.dump(final_tfidf, TFIDF_PATH)
+    joblib.dump(final_ohe, LABEL_ENCODERS_PATH)
+    joblib.dump(final_scaler, FEATURE_CONFIG_PATH)
 
     metrics = {
         "best_model": best_name,
         "results": results,
         "confusion_matrix": cm.tolist(),
+        "document_style_confusion_matrix": doc_cm.tolist(),
         "classification_report": report,
+        "document_style_classification_report": doc_report,
+        "dataset_sources": dataset_sources or [],
         "dataset_info": {
             "total_samples": len(data),
-            "training_samples": X_train.shape[0],
-            "test_samples": X_test.shape[0],
-            "feature_count": X_combined.shape[1]
+            "training_samples": len(train_augmented),
+            "test_samples": len(test_df),
+            "final_training_samples": len(final_data),
+            "feature_count": X_train.shape[1]
         }
     }
 
     with open(METRICS_PATH, "w", encoding="utf-8") as f:
         json.dump(metrics, f, indent=2)
-
-    return metrics
 
     return metrics

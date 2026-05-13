@@ -1,6 +1,19 @@
-import re
 import pandas as pd
-from .config import TEXT_COLUMNS, CATEGORICAL_COLUMNS, BINARY_COLUMNS, TARGET_COLUMN, SUSPICIOUS_KEYWORDS, PROCESSED_DATASET, PROCESSED_DIR
+import re
+from .config import (
+    BINARY_COLUMNS,
+    CATEGORICAL_COLUMNS,
+    CONTACT_RISK_KEYWORDS,
+    FEE_KEYWORDS,
+    PROCESSED_DATASET,
+    PROCESSED_DIR,
+    SALARY_KEYWORDS,
+    SENSITIVE_INFO_KEYWORDS,
+    SUSPICIOUS_KEYWORDS,
+    TARGET_COLUMN,
+    TEXT_COLUMNS,
+    URGENCY_KEYWORDS,
+)
 
 
 def load_dataset(path):
@@ -67,10 +80,16 @@ def prepare_dataframe(data: pd.DataFrame) -> pd.DataFrame:
 
     # Missing indicators
     data["profile_missing"] = data["company_profile"].apply(lambda x: 1 if len(str(x).strip()) == 0 else 0)
-    data["salary_missing"] = data["benefits"].str.lower().apply(lambda x: 1 if "salary" not in str(x) and "pay" not in str(x) and "compensation" not in str(x) else 0)
+    data["salary_missing"] = data["combined_text"].apply(
+        lambda x: 0 if count_keywords(x, SALARY_KEYWORDS) > 0 else 1
+    )
 
-    # Suspicious keywords
+    # Suspicious and scam-pattern keyword features
     data["suspicious_keyword_count"] = data["combined_text"].apply(count_suspicious_keywords)
+    data["fee_keyword_count"] = data["combined_text"].apply(lambda x: count_keywords(x, FEE_KEYWORDS))
+    data["urgency_keyword_count"] = data["combined_text"].apply(lambda x: count_keywords(x, URGENCY_KEYWORDS))
+    data["contact_risk_keyword_count"] = data["combined_text"].apply(lambda x: count_keywords(x, CONTACT_RISK_KEYWORDS))
+    data["sensitive_info_keyword_count"] = data["combined_text"].apply(lambda x: count_keywords(x, SENSITIVE_INFO_KEYWORDS))
 
     return data
 
@@ -83,20 +102,40 @@ def save_processed_data(data: pd.DataFrame):
 
 
 def count_suspicious_keywords(text: str) -> int:
+    return count_keywords(text, SUSPICIOUS_KEYWORDS)
+
+
+def count_keywords(text: str, keywords: list[str]) -> int:
     text = str(text).lower()
-    return sum(1 for keyword in SUSPICIOUS_KEYWORDS if keyword in text)
+    return sum(1 for keyword in keywords if keyword in text)
+
+
+def make_document_style_records(data: pd.DataFrame) -> pd.DataFrame:
+    """Collapse structured rows into one text block to mimic PDFs and URLs."""
+    document_rows = data.copy()
+    text_columns = [col for col in TEXT_COLUMNS if col in document_rows.columns]
+    document_rows["description"] = document_rows[text_columns].fillna("").astype(str).agg(" ".join, axis=1)
+
+    for col in ("company_profile", "requirements", "benefits", "extra_text"):
+        document_rows[col] = ""
+
+    document_rows["has_company_logo"] = 0
+    document_rows["has_questions"] = 0
+    return document_rows
 
 
 def build_user_record(title, company_profile, description, requirements, benefits,
                       employment_type="Unknown", required_experience="Unknown",
                       required_education="Unknown", industry="Unknown", function="Unknown",
-                      telecommuting=0, has_company_logo=0, has_questions=0):
+                      telecommuting=0, has_company_logo=0, has_questions=0,
+                      extra_text=""):
     return pd.DataFrame([{
         "title": title,
         "company_profile": company_profile,
         "description": description,
         "requirements": requirements,
         "benefits": benefits,
+        "extra_text": extra_text,
         "employment_type": employment_type,
         "required_experience": required_experience,
         "required_education": required_education,

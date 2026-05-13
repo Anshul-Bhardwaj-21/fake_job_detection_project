@@ -14,9 +14,12 @@ This project detects whether a job posting is genuine or fake using text preproc
 - Confusion matrix and evaluation metrics
 - Association rule mining using Apriori algorithm
 - K-Means clustering analysis
-- Streamlit UI for demo
+- Streamlit UI for demo with advanced inputs
 - Kaggle dataset support with automatic download
 - Sample dataset included as fallback
+- **NEW:** Appointment letter and job offer advertisement analysis
+- **NEW:** Search functionality (Coming Soon)
+- **NEW:** Reinforcement learning with user feedback system
 
 ## Dataset
 
@@ -208,17 +211,23 @@ K-Means clustering on TF-IDF features:
    - Input suspicious job posting
    - Show prediction, risk score, warning indicators
 
-## Important Notes
+## Reinforcement Learning System
 
-- **No Fake Results**: All metrics come from actual model training
-- **Imbalanced Data**: Uses class weighting and appropriate metrics
-- **Sparse Matrices**: Efficient handling of high-dimensional text features
-- **Error Handling**: Graceful fallbacks and clear error messages
-- **College Project**: Suitable for DMML mini project demonstration
+The app includes an innovative **user feedback system** that enables continuous learning:
 
-## Security Disclaimer
+### How It Works:
+1. **User Feedback**: After each prediction, users can provide feedback (👍 Accurate / 👎 Inaccurate)
+2. **Data Collection**: Feedback is stored locally in `data/feedback.json`
+3. **Model Retraining**: Click "🔄 Retrain Model" to update the AI with collected feedback
+4. **Continuous Improvement**: The model learns from user corrections and improves over time
 
-This is a decision-support system providing risk-based predictions, not legal proof. Users should always verify company identity manually before applying or sharing sensitive information.
+### Benefits:
+- **Adaptive AI**: Model improves with real-world usage
+- **User-Centric**: Incorporates human expertise
+- **Privacy-Focused**: Feedback stored locally, not shared
+- **Incremental Learning**: No need for complete retraining from scratch
+
+**Note**: Feedback data is excluded from version control for privacy.
 models/model_metrics.json
 reports/figures/confusion_matrix.png
 reports/figures/model_comparison.png

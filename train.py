@@ -1,28 +1,42 @@
 import json
-from src.utils import get_dataset_path
-from src.preprocessing import load_dataset, prepare_dataframe
+from src.datasets import load_training_dataset
+from src.preprocessing import prepare_dataframe
 from src.model_training import train_and_evaluate
 from src.association_rules import generate_simple_association_rules
 from src.clustering import run_clustering
-from src.config import REPORT_DIR, KAGGLE_DATASET, SAMPLE_DATASET
+from src.config import REPORT_DIR
+
+
+def cleanup_reports():
+    """Remove old report files before a fresh training run."""
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    removed = 0
+    for pattern in ["*.png", "*.csv", "*.json"]:
+        for old_file in REPORT_DIR.glob(pattern):
+            try:
+                old_file.unlink()
+                removed += 1
+            except Exception:
+                pass
+    if removed > 0:
+        print(f"Removed {removed} old report file(s) from {REPORT_DIR}.")
 
 
 def main():
-    dataset_path = get_dataset_path()
+    raw_data, dataset_sources = load_training_dataset()
 
-    if dataset_path == KAGGLE_DATASET and KAGGLE_DATASET.exists():
-        print(f"Using real Kaggle dataset: {dataset_path}")
-    elif dataset_path == SAMPLE_DATASET:
-        print("Using sample dataset only. For final training, download Kaggle dataset.")
-        print("Run: python scripts/download_dataset.py")
-    else:
-        print(f"Using dataset: {dataset_path}")
+    print("Using training datasets:")
+    for source in dataset_sources:
+        print(f"- {source['name']}: {source['rows']} rows ({source['path']})")
+        if "warning" in source:
+            print(f"  Warning: {source['warning']}")
 
-    raw_data = load_dataset(dataset_path)
+    cleanup_reports()
+
     prepared = prepare_dataframe(raw_data)
 
     print("Training and evaluating models...")
-    metrics = train_and_evaluate(raw_data)
+    metrics = train_and_evaluate(raw_data, dataset_sources=dataset_sources)
 
     print("Generating association rules...")
     rules = generate_simple_association_rules(prepared)

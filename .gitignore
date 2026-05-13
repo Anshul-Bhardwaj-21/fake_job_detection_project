@@ -6,7 +6,9 @@ models/*.pkl
 .DS_Store
 .env
 data/raw/fake_job_postings.csv
+data/raw/indian_fake_job_postings_synthetic.csv
 data/processed/
+data/feedback.json
 *.log
 .vscode/
 node_modules/
